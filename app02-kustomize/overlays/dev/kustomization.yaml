@@ -4,7 +4,7 @@ resources:
 patches:
   - target:
       kind: Deployment
-      name: app03
+      name: app02
     patch: |-
       - op: replace
         path: /spec/replicas
