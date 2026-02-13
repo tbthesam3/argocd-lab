@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app03-kustomize-configmap-dev
+  name: app02-kustomize
   namespace: argocd
 spec:
   project: default
@@ -9,11 +9,11 @@ spec:
   source:
     repoURL: git@github.com:tbthesam3/argocd-lab.git
     targetRevision: HEAD
-    path: app03-kustomize-configMap/overlays/dev/
+    path: app02-kustomize/base
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: dev
+    namespace: default
 
   syncPolicy:
     automated:
