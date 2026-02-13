@@ -1,0 +1,13 @@
+resources:
+  - ../../base
+  - configmap.yaml
+
+
+patches:
+  - target:
+      kind: Deployment
+      name: app03
+    patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 2

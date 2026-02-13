@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app01-plain
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: git@github.com:tbthesam3/argocd-lab.git
+    targetRevision: HEAD
+    path: app01-plain
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
